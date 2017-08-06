@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 
-import { siteName, img } from '../helpers/utils';
+import { siteName, img, icon } from '../helpers/utils';
 import { request } from '../helpers/api';
 
 class Person extends React.Component {
@@ -25,7 +25,7 @@ class Person extends React.Component {
     return(
       <div className="">
         <h1>{name && name}</h1>
-        <img src={profile_path && img(profile_path, "w300")} style={{width: "300px"}} className="" alt=""/>
+        <img src={profile_path ? img(profile_path, "w300") : icon('person-placeholder.png')} style={{width: "300px"}} className="" alt=""/>
         <p>{biography && biography}</p>
         <ul>
           {credits && credits.cast.map((res, i) => {

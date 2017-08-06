@@ -24,6 +24,7 @@ class List extends React.Component{
   }
   render(){
     console.log(this.state.data);
+    const url = this.props.url.includes('/tv/') ? `/tv/` : `/m/`
     return(
       <div className="a">
         <h1>{this.props.title}</h1>
@@ -32,7 +33,7 @@ class List extends React.Component{
             if (i < 10) {
               return (
                 <li key={i}>
-                  <Link to={`/m/${res.id}`} className="title">{res.name ? res.name : res.title}</Link>
+                  <Link to={`${url}${res.id}`} className="title">{res.name ? res.name : res.title}</Link>
                   <img src={img(res.backdrop_path, "w500")} className="" alt=""/>
                 </li>
               )
