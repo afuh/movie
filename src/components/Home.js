@@ -3,7 +3,7 @@ import DocumentTitle from 'react-document-title';
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 
-import { siteName } from '../helpers/utils';
+import { siteName, img } from '../helpers/utils';
 import { request } from '../helpers/api';
 
 class List extends React.Component{
@@ -32,8 +32,8 @@ class List extends React.Component{
             if (i < 10) {
               return (
                 <li key={i}>
-                  <span className="title">{res.name ? res.name : res.title}</span>
-                  <img src={`http://image.tmdb.org/t/p/w500${res.backdrop_path}`} className="" alt=""/>
+                  <Link to={`/m/${res.id}`} className="title">{res.name ? res.name : res.title}</Link>
+                  <img src={img(res.backdrop_path, "w500")} className="" alt=""/>
                 </li>
               )
             }
